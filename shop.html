@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CozyWear - Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>CozyWear</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Our Products</h2>
+  <div class="products">
+    <div class="product">
+      <img src="images/beanie.webp" alt="Beanie">
+      <h3>Cozy Beanie</h3>
+      <p>R150</p>
+      <button class="btn" onclick="addToCart('Beanie',150,'images/beanie.webp')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/hoodie.webp" alt="Hoodie">
+      <h3>Classic Hoodie</h3>
+      <p>R350</p>
+      <button class="btn" onclick="addToCart('Hoodie',350,'images/hoodie.webp')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/sweatpant.webp" alt="Sweatpant">
+      <h3>Comfy Sweatpants</h3>
+      <p>R300</p>
+      <button class="btn" onclick="addToCart('Sweatpant',300,'images/sweatpant.webp')">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function addToCart(name, price, img) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({name, price, img});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + ' added to cart!');
+}
+</script>
+</body>
+</html>
